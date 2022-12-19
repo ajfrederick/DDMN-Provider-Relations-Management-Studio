@@ -1,0 +1,53 @@
+.table-container{
+    border: 1px solid #e7e6e9;
+    border-radius: 4px;
+    height: 80%;
+    max-height: 18rem;
+    min-height: 18rem;
+    box-sizing: border-box;
+    overflow-y: scroll;
+   
+}
+th{
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+tr{
+    border-top: 1px solid #e7e6e9;
+    border-bottom: 1px solid #e7e6e9;
+    cursor: pointer;
+}
+.no-border{
+    border: none;
+}
+.no-pointer{
+  cursor:default;
+}
+.limit-characters{
+    text-overflow:ellipsis;
+    overflow: hidden;
+    width: 15ch;
+
+}
+
+.date-format{
+  overflow: hidden;
+
+}
+
+.sticky{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  
+}
+
+.hidden {
+    visibility: hidden;
+  }
+  
+.column-label:hover .hidden {
+  visibility: visible;
+}

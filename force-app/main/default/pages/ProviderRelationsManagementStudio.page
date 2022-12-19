@@ -1,0 +1,34 @@
+<apex:page>
+    <apex:includeLightning />
+
+    <div id="providerRelationsManagementStudio" />
+
+    <script>
+
+        (function() {
+
+            let auraApp = "c:ProviderRelationsManagementStudioLightningOut",
+                lwcComponent = "c:prmsApp",
+                canvasId = "providerRelationsManagementStudio";
+        
+            let attributes = {};
+
+            let createComponentCallback = function( cmp ) {
+
+            };
+
+            let useCallback = function() {
+                $Lightning.createComponent( 
+                    lwcComponent, 
+                    attributes, 
+                    canvasId, 
+                    createComponentCallback 
+                );
+            }
+
+            $Lightning.use( auraApp, useCallback );
+            
+        })();
+        
+    </script>
+</apex:page>

@@ -1,0 +1,81 @@
+<template>
+    <div class={messageComposerStyle}>
+
+        <!-- PAGE TITLE AND CART -->
+        <div class="slds-grid slds-grid_vertical-align-center slds-p-top_x-small slds-p-bottom_small">
+            <lightning-icon 
+                class="slds-align_center slds-m-right_large"  
+                icon-name="utility:new_direct_message" 
+                size="medium">
+            </lightning-icon>
+            
+            <div class="slds-text-align_center slds-float_left slds-text-heading_medium slds-text-color_weak">
+                Message Composer
+            </div>
+
+            <!-- CART -->
+            <c-selection-cart
+                class="slds-col slds-col_bump-left"
+                records={email.recipients}
+                onremoved={handleContactsRemoved} >
+            </c-selection-cart>
+        </div>
+
+        <!-- CONTACT SELECTION -->
+        <div if:false={recipientsSelected}>
+            <c-prms-record-container-contact
+                selected-records={email.recipients}
+                onadded={handleContactsAdded}
+                onremoved={handleContactsRemoved}>
+            </c-prms-record-container-contact>
+        </div>
+
+        <!-- COMPOSER -->
+        <div if:true={recipientsSelected}>
+
+            <!-- SUBJECT -->
+            <div class="slds-form-element slds-m-bottom_large">
+                <lightning-input 
+                    type="text" 
+                    placeholder="Subject" 
+                    onchange={handleEmailSubjectChange}
+                    value={email.subject}>
+                </lightning-input>
+            </div>
+
+            <!-- MESSAGE BODY -->
+            <lightning-input-rich-text 
+                onchange={handleEmailMessageBodyChange}
+                value={email.messageBody}
+                class="slds-m-bottom_small slds-scrollable_y">
+            </lightning-input-rich-text>
+
+            <!-- ATTACHMENTS -->
+            <lightning-layout>
+                <c-message-attachments
+                    attachments={email.attachments}
+                    is-new="true"
+                    onattachmentadded={handleAttachmentAdded}
+                    onattachmentdeleted={handleAttachmentDeleted}>
+                </c-message-attachments>
+            </lightning-layout> 
+        </div>
+
+        <!-- FOOTER AND BUTTONS -->
+        <footer class="slds-card__footer slds-m-bottom_medium slds-float_clear slds-grid_vertical-align-end">
+
+            <button class="slds-button slds-button_destructive slds-float_left" onclick={handleCancelClick}>Cancel</button>
+
+            <div if:false={recipientsSelected}>
+                <button class="slds-button slds-button_brand slds-float_right" disabled={nextDisabled} onclick={handleNextClick}>Next</button>
+            </div>
+
+            <div if:true={recipientsSelected}>
+                <button class="slds-button slds-button_outline-brand slds-float_left cancel-button" onclick={handleBackClick}>Back</button>
+                <button disabled={nextDisabled} class="slds-button slds-button_brand slds-float_right" onclick={handleSendClick}>Send</button>
+            </div>
+
+        </footer>
+
+    </div>  
+</template>

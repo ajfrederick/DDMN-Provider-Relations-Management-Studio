@@ -1,0 +1,67 @@
+<template>
+    <div class="cart-container">
+        
+        <!-- CART ICON -->
+        <div class={iconStyle} onclick={toggleDropDown}>
+            <lightning-icon 
+                class="slds-has-right-magnet"
+                icon-name="utility:people"
+                size="small">
+            </lightning-icon>
+
+            <div class="record-count slds-has-left-magnet slds-col slds-align-bottom">
+                {records.length}
+            </div>
+        </div>
+
+        <!-- DROP DOWN -->
+        <div class="drop-down drop-down-hidden">
+            <div class="table-container slds-m-bottom_small">
+
+                <template if:false={hasRecords}>
+                    <div class="no-selection slds-align_absolute-center slds-var-p-around_medium">
+                        <span>Please make a selection</span>
+                    </div>
+                </template>
+
+                <template if:true={hasRecords}>
+                    <table class="slds-table slds-table_cell-buffer">
+
+                        <!-- HEADER -->
+                        <thead class="sticky"></thead>
+            
+                        <!-- BODY -->
+                        <tbody>
+            
+                            <!-- ROWS -->
+                            <template for:each={records} for:item="record" for:index="i">
+                                <tr key={record.Id} class="slds-hint-parent">
+                                    <td class="slds-text-align_right slds-cell_action-mode" role="gridcell">
+                                        <!-- REMOVE -->
+                                        <lightning-button-icon
+                                            onclick={remove}
+                                            data-record-id={record.Id} 
+                                            variant="bare" 
+                                            icon-name="utility:close" 
+                                            alternative-text="Remove" 
+                                            class="remove-button" 
+                                            title="Remove">
+                                        </lightning-button-icon>
+                                    </td>
+                                    <th scope="row">
+                                        <div class="slds-truncate" title={record.Name}>
+                                            <a href={record.Id} target="_blank">{record.Name}</a>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </template>
+            
+                        </tbody>
+            
+                    </table>
+                </template>
+
+            </div>
+        </div>
+    </div>
+</template>

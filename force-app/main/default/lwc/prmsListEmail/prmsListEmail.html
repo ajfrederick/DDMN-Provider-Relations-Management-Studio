@@ -1,0 +1,72 @@
+<template>
+    <div class="table-container slds-m-bottom_small">
+        <table class="slds-table slds-table_cell-buffer">
+            <thead class="sticky">
+                <tr class="slds-line-height_reset no-border">
+                    <th scope="col">
+                        <div  class="slds-truncate column-label" title="Date Sent" onclick={handleSortClick} data-order-by="0">
+                            <span>Date Sent</span>
+                            <lightning-icon
+                                title="Date Sent" 
+                                class="slds-p-left_xx-small hidden" 
+                                icon-name="utility:sort" 
+                                size="xx-small">
+                            </lightning-icon>
+
+                        </div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate column-label" title="Subject" onclick={handleSortClick} data-order-by="1">
+                            <span>Subject</span>
+                            <lightning-icon
+                                title="Subject" 
+                                class="slds-p-left_xx-small hidden" 
+                                icon-name="utility:sort" 
+                                size="xx-small">
+                            </lightning-icon>
+                        </div>
+                    </th>
+                    <th scope="col" class="no-pointer">
+                        <div class="slds-truncate column-label" title="Message">
+                            <span>Message</span>
+                        </div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate column-label" title="Sent By" onclick={handleSortClick} data-order-by="2">
+                            <span>Sent By</span>
+                            <lightning-icon
+                                title="Sent By" 
+                                class="slds-p-left_xx-small hidden" 
+                                icon-name="utility:sort" 
+                                size="xx-small">
+                            </lightning-icon>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={records} for:item="email">
+                    <tr 
+                        key={email.Id}
+                        data-id={email.Id}
+                        class="slds-hint-parent"  
+                        onclick={handleEmailClick}>
+                        
+                            <td data-id={email.emailId} data-label="Date Sent">
+                                <div data-id={email.Id} class="date-format slds-truncate">{email.CreatedDate}</div>
+                            </td>
+                            <td data-id={email.Id} data-label="Subject" scope="row">
+                                <div data-id={email.Id} class="slds-truncate limit-characters">{email.Subject__c}</div>
+                            </td>
+                            <td data-id={email.Id} data-label="Message">
+                                <div data-id={email.Id} class="limit-characters slds-truncate">{email.Message_Plain_Text__c}</div>
+                            </td>
+                            <td data-id={email.Id} data-label="Sent By">
+                                <div data-id={email.Id} class="slds-truncate">{email.CreatedBy.Name}</div>
+                            </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+</template>

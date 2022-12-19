@@ -1,0 +1,40 @@
+<template>
+    <div class="slds-is-relative">
+
+        <lightning-layout horizontal-align="spread" vertical-align="center">
+            <lightning-layout-item>
+                <lightning-input 
+                    type="date" 
+                    label="Date Range"
+                    date-style="short" 
+                    message-when-bad-input="Invalid date format"
+                    onchange={handleStartDateChange}
+                    onkeypress={handleKeyPress}>
+                </lightning-input>
+            </lightning-layout-item>
+
+            <lightning-layout-item>
+                <lightning-input 
+                    type="date" 
+                    label="‎"
+                    date-style="short" 
+                    message-when-bad-input="Invalid date format"
+                    onchange={handleEndDateChange}
+                    onkeypress={handleKeyPress}>
+                </lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <!-- CLEAR DATES -->
+        <lightning-button-icon
+            if:true={hasOneDate}
+            class="date-clear slds-is-absolute"
+            icon-name="utility:close" 
+            variant="bare" 
+            alternative-text="Clear Dates" 
+            title="Clear"
+            onclick={clearDates}>
+        </lightning-button-icon>
+        
+    </div>
+</template>

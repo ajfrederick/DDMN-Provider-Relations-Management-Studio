@@ -1,0 +1,70 @@
+<template>
+    <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center slds-m-bottom_large"> 
+
+        <div class="slds-col slds-size_3-of-12">
+            <div class="slds-form-element">
+                <lightning-input 
+                    type="text" 
+                    label="Search" 
+                    title="Search"
+                    placeholder="Search..."
+                    onkeyup={handleSearchChange}>
+                </lightning-input>
+            </div>
+        </div>
+
+        <lightning-combobox
+            class="slds-col slds-size_1-of-12"
+            name="title"
+            label="Title"
+            title="Title"
+            placeholder="Select Title"
+            options={titleOptions}
+            onchange={handleTitleChange}>
+        </lightning-combobox>
+
+        <lightning-combobox
+            class="slds-col slds-size_1-of-12"
+            name="network"
+            label="Network"
+            title="Network"
+            placeholder="Select Network"
+            options={networkOptions}
+            onchange={handleNetworkChange}>
+        </lightning-combobox>
+        
+        <lightning-input
+            class="slds-col slds-size_1-of-12"  
+            label="County"
+            title="County"
+            placeholder="Search County"
+            type="text"
+            onchange={handleCountyChange}>
+        </lightning-input>
+        
+        <lightning-input
+            class="slds-col slds-size_1-of-12 check-box-style"  
+            label="CAD"
+            title="CAD"
+            type="checkbox" 
+            onchange={handleCADChange}>
+        </lightning-input>
+
+        <lightning-input
+            class="slds-col slds-size_1-of-12 check-box-style"  
+            label="FQHC"
+            title="FQHC"
+            type="checkbox"
+            onchange={handleFQHCChange}>
+        </lightning-input>
+
+        <c-paginator
+            class="slds-col slds-size_2-of-12"  
+            total-record-count={totalRecordCount}
+            current-page={currentPage}
+            record-limit={recordLimit}
+            onpageturn={handlePageTurn}>
+        </c-paginator>
+        
+    </div>
+</template>

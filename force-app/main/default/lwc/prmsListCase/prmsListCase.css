@@ -1,0 +1,46 @@
+.table-container{
+    border: 1px solid #e7e6e9;
+    border-radius: 4px;
+    max-height: 10rem;
+    min-height: 5rem;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.sticky{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  
+}
+
+th{
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+tr{
+    border-top: 1px solid #e7e6e9;
+    border-bottom: 1px solid #e7e6e9;
+    cursor: default;
+}
+.no-border{
+    border: none;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.column-label {
+    cursor: pointer;
+}
+
+.column-label:hover .hidden {
+  visibility: visible;
+}

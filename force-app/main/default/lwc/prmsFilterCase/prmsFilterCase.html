@@ -1,0 +1,27 @@
+<template>
+    
+    <lightning-layout class="slds-m-bottom_medium" horizontal-align="spread">
+
+        <lightning-layout-item size="6">
+            <div class="slds-form-element slds-align_bottom ">
+                <input
+                    type="text" 
+                    id="case-search-text" 
+                    placeholder="Find Cases by Email or Case Number..." 
+                    class="slds-input"
+                    onkeyup={handleSearchChange} />
+            </div>
+        </lightning-layout-item>
+
+        <lightning-layout-item>
+            <c-paginator
+                total-record-count={totalRecordCount}
+                record-limit={recordLimit}
+                current-page={currentPage}
+                onpageturn={handlePageTurn}>
+            </c-paginator>
+        </lightning-layout-item>
+
+    </lightning-layout>
+
+</template>

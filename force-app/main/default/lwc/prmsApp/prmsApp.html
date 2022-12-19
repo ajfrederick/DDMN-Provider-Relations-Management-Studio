@@ -1,0 +1,26 @@
+<template>
+    <div class={containerStyle}>
+
+        <c-prms-main-page 
+            if:true={showMainPage}
+            onnewmessageclick={toggleMessageComposer} 
+            onemailclick={toggleMessageViewer}>
+        </c-prms-main-page>
+
+        <c-prms-message-viewer
+            if:true={showMessageViewer} 
+            onclose={toggleMessageViewer}
+            selected-email={selectedEmail}>
+        </c-prms-message-viewer>
+
+        <c-prms-message-composer
+            if:true={showMessageComposer} 
+            onclose={toggleMessageComposer}>
+        </c-prms-message-composer>
+
+    </div>
+</template>
+
+
+
+

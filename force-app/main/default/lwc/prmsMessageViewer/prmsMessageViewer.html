@@ -1,0 +1,67 @@
+<template>
+    <div class={viewerStyle}>
+
+        <!-- HEADER/TITLE -->
+        <div class="slds-grid slds-grid_vertical-align-center slds-m-bottom_medium">
+            <lightning-icon 
+                class="slds-align_center slds-m-right_large"  
+                icon-name="utility:email" 
+                size="medium">
+            </lightning-icon>
+            
+            <div class="slds-text-align_center slds-float_left slds-text-heading_medium slds-text-color_weak slds-m-right_large">
+                Email Information
+            </div>
+        </div>
+        
+        <!-- VIEWER BODY -->
+        <div class="slds-m-bottom_medium">
+
+            <!-- EMAIL SUBJECT -->
+            <div class="subject">
+                <span class="subject-header">
+                    <b>Subject: </b>
+                </span> 
+                {emailSubject}
+            </div>
+
+            <!-- EMAIL BODY -->
+            <div class="email-text-container slds-scrollable_y slds-m-bottom_medium">
+                <lightning-formatted-rich-text
+                    name="email text"
+                    class="slds-m-bottom_medium" 
+                    value={emailBody} 
+                    label="Sent Email">
+                </lightning-formatted-rich-text>
+            </div>
+
+            <!-- EMAIL ATTACHMENTS -->
+            <div>
+                <p class="attachment-header subject-header" ><b>Attachments:</b></p>
+                <p class="attachments">
+                    <template for:each={attachments} for:item="attachment">
+                        <span key={attachment} class="attachment-container">
+                            <lightning-icon icon-name="utility:attach" 
+                                            alternative-text="Attachment"
+                                            style="margin-right: 4px;"
+                                            size="x-small">
+                            </lightning-icon>
+                            {attachment}
+                        </span>
+                    </template>
+                </p>
+            </div>
+        </div>
+
+        <!-- CASE LIST CONTAINER -->
+        <c-prms-record-container-case 
+            selected-email={selectedEmail}>
+        </c-prms-record-container-case>
+        
+         <!-- CLOSE BUTTON -->
+        <button class="slds-button slds-button_neutral slds-col slds-size_1-of-12 slds-align-middle" onclick={handleCloseClick}>
+            Close
+        </button>
+
+    </div>
+</template>

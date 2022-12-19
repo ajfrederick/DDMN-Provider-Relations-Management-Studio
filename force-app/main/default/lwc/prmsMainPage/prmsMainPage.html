@@ -1,0 +1,52 @@
+<template>
+
+    <div class="slds-clearfix">
+
+        <lightning-layout horizontal-align="left">
+
+            <lightning-layout-item size="5">
+
+                <lightning-layout horizontal-align="left">
+
+                    <lightning-layout-item>
+                        <lightning-icon 
+                            class="slds-m-right_small header-icon slds-align_absolute-center" 
+                            icon-name="utility:groups" 
+                            alternative-text="boradcast icons" 
+                            title="Audio"
+                            size="medium">
+                        </lightning-icon> 
+
+                    </lightning-layout-item>
+
+                    <lightning-layout-item>
+                        <div class="slds-text-heading_medium slds-text-color_weak header-text">
+                            Provider Relations Management Studio
+                        </div>
+                    </lightning-layout-item>
+
+                </lightning-layout>
+
+            </lightning-layout-item>
+            
+            <lightning-layout-item size="6">  
+                <hr />
+            </lightning-layout-item>
+
+            <lightning-layout-item size="1">  
+                <lightning-icon
+                    class="button-effects button-circle-border pointer slds-float_right "
+                    size="small"
+                    icon-name="utility:add"
+                    onclick={handleNewMessageClick}> 
+                </lightning-icon>
+            </lightning-layout-item>
+
+        </lightning-layout>
+            
+    </div>
+
+    <c-prms-record-container-email>
+    </c-prms-record-container-email>
+
+</template>

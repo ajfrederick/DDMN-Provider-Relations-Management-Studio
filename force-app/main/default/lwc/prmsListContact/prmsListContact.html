@@ -1,0 +1,95 @@
+<template>
+    <div class="table-container slds-m-bottom_small">
+        <table class="slds-table slds-table_cell-buffer">
+
+            <!-- HEADER -->
+            <thead class="sticky">
+
+                <!-- HEADER ROW -->
+                <tr class="slds-line-height_reset no-border">
+
+                    <!-- CHECK ALL -->
+                    <th scope="col" style="width:3.25rem">
+                        <div class="slds-truncate column-label">
+                            <div class="slds-checkbox">
+                                <lightning-input 
+                                    type="checkbox"
+                                    title="Select All"
+                                    onchange={handleSelectAll}
+                                    checked={allSelected}>
+                                </lightning-input>
+                            </div>
+                        </div>
+                    </th>
+
+                    <!-- HEADER COLUMNS -->
+                    <template for:each={columns} for:item="column" for:index="i">
+                        <th key={column} scope="col">
+                            <div  class="slds-truncate column-label" title={column} onclick={handleSortClick} data-order-by={i}>
+                                <span>{column}</span>
+                                <lightning-icon
+                                    title={column} 
+                                    class="slds-p-left_xx-small hidden" 
+                                    icon-name="utility:sort" 
+                                    size="xx-small">
+                                </lightning-icon>
+                            </div>
+                        </th>     
+                    </template>
+
+                </tr>
+            </thead>
+
+            <!-- BODY -->
+            <tbody>
+
+                <!-- ROWS -->
+                <template for:each={records} for:item="record" for:index="i">
+                    <tr key={record.Id} class="slds-hint-parent">
+                        <td class="slds-text-align_right slds-cell_action-mode" role="gridcell">
+
+                            <!-- CHECKBOX -->
+                            <div class="slds-checkbox">
+                                <lightning-input
+                                    data-record-id={record.Id}
+                                    type="checkbox"
+                                    title="Select"
+                                    onchange={handleSelect}
+                                    checked={record.selected}>
+                                </lightning-input>
+                            </div>
+
+                        </td>
+                        <th scope="row">
+                            <div class="slds-truncate" title={record.Name}>
+                                <a href={record.Id} target="_blank">{record.Name}</a>
+                            </div>
+                        </th>
+                        <td role="gridcell">
+                            <div class="slds-truncate" title={record.Title__c}>
+                                {record.Title__c}
+                            </div>
+                        </td>
+                        <td role="gridcell">
+                            <div class="slds-truncate" title={record.Account.Name}>
+                                <a href={record.AccountId} target="_blank">{record.Account.Name}</a>
+                            </div>
+                        </td>
+                        <td role="gridcell">
+                            <div class="slds-truncate" title={record.Email}>
+                                {record.Email}
+                            </div>
+                        </td>
+                        <td role="gridcell">
+                            <div class="slds-truncate" title={record.Phone}>
+                                {record.Phone}
+                            </div>
+                        </td>
+                    </tr>
+                </template>
+
+            </tbody>
+
+        </table>
+    </div>
+</template>

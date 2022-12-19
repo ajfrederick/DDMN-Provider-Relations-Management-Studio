@@ -1,0 +1,37 @@
+<!-- this is a conainer for many attachments -->
+<template>
+    <template if:true={hasAttachments}>
+
+        <lightning-layout vertical-align="end">
+            
+            <!-- File Input -->
+            <lightning-layout-item if:true={isNew}>
+
+                <lightning-input
+                    type="file"
+                    onchange={handleAttachment}
+                    class="slds-m-right_medium">
+                </lightning-input>
+
+                <span if:true={hasErrors} class="error-message">{errorMessage}</span>
+
+            </lightning-layout-item>
+            <!-- END File Input -->
+
+            <!-- LOOP Attachments -->
+            <template for:each={attachments} for:item="attachment">
+                <lightning-layout-item key={attachment.Id}>
+                    
+                    <c-message-attachment 
+                        attachment={attachment}
+                        is-new={isNew}>
+                    </c-message-attachment>
+
+                </lightning-layout-item>
+            </template>
+            <!-- END Attachments Loop-->
+
+        </lightning-layout>
+
+    </template>
+</template>

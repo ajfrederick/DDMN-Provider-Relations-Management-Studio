@@ -1,0 +1,32 @@
+<template>
+    
+    <c-prms-filter-contact
+        total-record-count={totalRecordCount}
+        record-limit={filter.recordLimit}
+        current-page={filter.recordOffset}
+        onuniquefilterchange={handleUniqueFilterChange}
+        ongeneralfilterchange={handleGeneralFilterChange}>
+    </c-prms-filter-contact>
+
+    <c-prms-list-contact 
+        records={records}
+        onsortchange={handleSortChange}
+        class="slds-m-top_x-large">
+    </c-prms-list-contact>
+
+    <div class="slds-size_1-of-8 slds-float_right">
+        <lightning-combobox
+            class="slds-text-color_weak"
+            name="Records Per Page" 
+            value={filter.recordLimit} 
+            options={recordLimitOptions}
+            onchange={handleRecordLimitChange}
+            dropdown-alignment="bottom-right">
+        </lightning-combobox> 
+    </div>
+
+    <template if:true={isLoading}>
+        <lightning-spinner variant="brand" alternative-text="Loading" size="medium"></lightning-spinner>
+    </template>
+    
+</template>

@@ -1,0 +1,23 @@
+.pagination-button {
+    cursor: pointer;
+}
+
+.pagination-button-disabled {
+    opacity: 43%;
+    pointer-events: none;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+.page-counter {
+    font-size: .7em;
+    margin-left: 10px;
+}

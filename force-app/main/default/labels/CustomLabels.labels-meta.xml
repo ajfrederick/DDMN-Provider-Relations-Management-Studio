@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Provider_Relations_From_Email_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This address should be an exact match to a chosen Org Wide Email Address</shortDescription>
+        <value>jcomfort@creedinteractive.com</value>
+    </labels>
+</CustomLabels>

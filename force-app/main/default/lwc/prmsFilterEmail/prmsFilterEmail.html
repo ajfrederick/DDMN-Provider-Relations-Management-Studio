@@ -1,0 +1,30 @@
+<template>
+    <div class="slds-grid slds-grid_vertical-align-end slds-grid_align-spread slds-gutters_direct-x-large">
+
+        <div class="slds-col slds-size_2-of-6">
+            <div class="slds-form-element">
+                <input 
+                    type="text" 
+                    id="email-filter-search" 
+                    placeholder="Search..." 
+                    class="slds-input"
+                    onkeyup={handleSearchChange}/>
+            </div>
+        </div>
+
+        <div class="slds-col slds-size_2-of-6">
+            <c-date-range-picker 
+                ondatechange={handleDateChange}>
+            </c-date-range-picker>
+        </div>
+
+        <c-paginator
+            total-record-count={totalRecordCount}
+            current-page={currentPage}
+            record-limit={recordLimit}
+            onpageturn={handlePageTurn}>
+        </c-paginator>
+    
+    </div>
+</template>
+

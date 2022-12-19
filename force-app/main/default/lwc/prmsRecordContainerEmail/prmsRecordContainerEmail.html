@@ -1,0 +1,31 @@
+<template>
+
+    <c-prms-filter-email
+        total-record-count={totalRecordCount}
+        record-limit={filter.recordLimit}
+        current-page={filter.recordOffset}
+        onuniquefilterchange={handleUniqueFilterChange}
+        ongeneralfilterchange={handleGeneralFilterChange}>
+    </c-prms-filter-email>
+
+    <c-prms-list-email 
+        records={records}
+        onsortchange={handleSortChange}>
+    </c-prms-list-email >
+    
+    <div class="slds-size_1-of-8 slds-float_right">
+        <lightning-combobox
+            class="slds-text-color_weak"
+            name="Records Per Page" 
+            value={filter.recordLimit} 
+            options={recordLimitOptions}
+            onchange={handleRecordLimitChange}
+            dropdown-alignment="bottom-right">
+        </lightning-combobox> 
+    </div>
+
+    <template if:true={isLoading}>
+        <lightning-spinner variant="brand" alternative-text="Loading" size="medium"></lightning-spinner>
+    </template>
+
+</template>

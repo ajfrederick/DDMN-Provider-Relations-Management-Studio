@@ -1,0 +1,60 @@
+<template>
+    <div class="table-container">
+        <table class="slds-table slds-table_cell-buffer slds-scrollable_y limit-height">
+            <thead class="sticky">
+
+                <!-- HEADER COLUMNS -->
+                <tr class="slds-line-height_reset no-border">
+                    <template for:each={columns} for:item="column" for:index="i">
+                        <th key={column} scope="col">
+                            <div  class="slds-truncate column-label" title={column} onclick={handleSortClick} data-order-by={i}>
+                                <span>{column}</span>
+                                <lightning-icon
+                                    title={column} 
+                                    class="slds-p-left_xx-small hidden" 
+                                    icon-name="utility:sort" 
+                                    size="xx-small">
+                                </lightning-icon>
+                            </div>
+                        </th>     
+                    </template>
+                </tr>
+
+            </thead>
+            <tbody>
+                <template for:each={records} for:item="caseRecord">
+                    <tr key={caseRecord.caseNumber} class="slds-hint-parent pointer">
+                        <td scope="row">
+                            <div class="slds-truncate pointer"
+                                data-id={caseRecord.Id}
+                                onclick={handleCaseClick}>
+                                    {caseRecord.CaseNumber}
+                            </div>
+                        </td>
+                        <td scope="row">
+                            <div class="slds-truncate"  
+                                data-id={caseRecord.Id}
+                                onclick={handleCaseClick}>
+                                    {caseRecord.Contact.Name}
+                            </div>
+                        </td>
+                        <td scope="row">
+                            <div class="slds-truncate" 
+                                data-id={caseRecord.Id}
+                                onclick={handleCaseClick}>
+                                    {caseRecord.Status}
+                            </div>
+                        </td>
+                        <td scope="row">
+                            <div class="slds-truncate" 
+                                data-id={caseRecord.Id}
+                                onclick={handleCaseClick}>
+                                    {caseRecord.Contact.Email}
+                            </div>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+</template>

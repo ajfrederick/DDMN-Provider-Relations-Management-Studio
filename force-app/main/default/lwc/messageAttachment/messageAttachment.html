@@ -1,0 +1,31 @@
+<!-- this is an indivual attachment -->
+<template>
+
+    <!-- MESSAGE ATTACHMENT -->
+    <div class="message-attachment" onmouseover={showDelete} onmouseout={hideDelete}>
+
+        <lightning-icon
+            class= "pointer"
+            icon-name={iconName}
+            title={attachment.Title}
+            onclick={preview}>   
+        </lightning-icon>
+        
+        <!-- IF IS NEW -->
+        <template if:true={isNew}>
+            <div class={deleteClass}>
+
+                <lightning-icon 
+                    icon-name="utility:close"
+                    alternative-text="close"
+                    size="xx-small"
+                    class="delete-attachment-icon" 
+                    onclick={deleteAttachment}>
+                </lightning-icon>
+
+            </div>
+        </template>
+
+    </div>
+    <!-- END MESSAGE ATTACHMENT -->
+</template>

@@ -1,0 +1,57 @@
+<template>
+
+    <div class="slds-align_absolute-center">
+        <lightning-layout class="noselect" horizontal-align="spread">
+
+            <lightning-layout-item>
+                <lightning-icon
+                    title="First"
+                    size="x-small"
+                    icon-name="utility:arrow_left"
+                    onclick={handleFirstClick}
+                    class={firstStyle}> 
+                </lightning-icon>
+            </lightning-layout-item>
+
+            <lightning-layout-item>
+                <lightning-icon
+                    title="Previous"
+                    size="x-small"
+                    icon-name="utility:left"
+                    onclick={handlePreviousClick}
+                    class={previousStyle}>   
+                </lightning-icon>
+            </lightning-layout-item>
+            
+            <lightning-layout-item>
+                <lightning-icon
+                    title="Next"
+                    size="x-small"
+                    icon-name="utility:right"
+                    onclick={handleNextClick}
+                    class={nextStyle}>   
+                </lightning-icon>
+            </lightning-layout-item>
+
+            <lightning-layout-item>
+                <lightning-icon
+                    title="Last"
+                    size="x-small"
+                    icon-name="utility:arrow_right"
+                    data-id="paginationLast"
+                    onclick={handleLastClick}
+                    class={lastStyle}>   
+                </lightning-icon>
+            </lightning-layout-item>
+                
+        </lightning-layout>   
+
+        <lightning-layout-item>
+            <span class="page-counter">
+                {currentPage} of {totalPages}
+            </span>
+        </lightning-layout-item>
+            
+    </div>
+
+</template>
