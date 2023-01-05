@@ -165,7 +165,7 @@ public with sharing abstract class Paginator {
      * Executes dynmaic query for total record count without filter criteria after determining whether or not a search is required.
      * 
      * @param String string defined by extensions
-     * @return list of SObjects
+     * @return number of total possible records without filter criteria
      */
     protected virtual Integer queryTotalRecordCount( String queryString ){
         return filter.hasSearch() ? Search.query( queryString )[0].size() : Database.countQuery( queryString );

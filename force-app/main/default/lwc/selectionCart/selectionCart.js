@@ -139,6 +139,7 @@ export default class SelectionCart extends  NavigationMixin(LightningElement) {
 
         e.stopPropagation();
     }
+    
 /**
  * EVENT EMITTERS
  */
