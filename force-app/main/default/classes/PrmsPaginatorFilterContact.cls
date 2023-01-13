@@ -127,7 +127,8 @@ public with sharing class PrmsPaginatorFilterContact extends PaginatorFilter {
                     q += 'AND Status__c != :inactive ';
                     q += 'AND Provider_Clinic__r.Status__c != :inactive ';
                     q += 'AND Provider_Clinic__r.Dentist__r.Status__c != :inactive ';
-                    //q += 'AND Provider_Clinic__r.Dentist__r.Email != null';
+                    //q += 'AND Provider_Clinic__r.Dentist__r.Email != null'; 
+                    // TODO: add this ^^^^ back in when provider relations data issues are recitified. Currently no providers have email data.
                     q += 'ORDER BY Provider_Clinic__r.Dentist__r.Name ' + filter.direction;
 
         try {
